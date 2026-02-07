@@ -1,5 +1,7 @@
 package Learn_Lambda;
 
+import java.util.function.Supplier;
+
 public class Lambda_main {
     public static void main(String[] args) {
         try_void tryVoid = () -> System.out.println("lambda表达式简单格式");   //1.不需要返回值的简单lambda表达式格式
@@ -28,6 +30,19 @@ public class Lambda_main {
         System.out.println(in.try_int(101,9798) + in1.try_int(7784,56));  //3.的引用
         System.out.println(stt.STRING_return("NB"));  //3.的引用
         ne.try_void();  //3.的引用
+
+        /*函数式接口
+         */
+        supplier_example supplierExampleex = new supplier_example();
+//        ex.getname(new Supplier<String>() {});//4.1可以通过新建一个对象来实现，也可以使用lambda表达式
+        supplierExampleex.getname(() -> {
+            System.out.println("实现了第一个函数式方法引用");
+            return "测试结果";
+        });
+        System.out.println(supplierExampleex.toString());
+
+        supplierExampleex.usename(System.out::println);
+
     }
     static String ylrc(String y){
         System.out.println("这是一个内部方法");
