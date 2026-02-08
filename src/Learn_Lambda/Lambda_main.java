@@ -1,5 +1,8 @@
 package Learn_Lambda;
 
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class Lambda_main {
@@ -40,8 +43,28 @@ public class Lambda_main {
             return "测试结果";
         });
         System.out.println(s_example.toString());
-
+        //试用consumer
+        Consumer<String> consumer = (name) -> {
+            if(name.length()>10){
+                System.out.println("超过了10个");
+            }else{
+                System.out.println("没超过");
+            }
+        };
+        consumer = consumer.andThen(name -> System.out.println("好andthen"));//andthen之后会给一个新的拼接之后的consumer
+        s_example.usename(consumer);
         s_example.usename(System.out::println);
+        //试用function
+        s_example.lengthname(name -> name.length());
+        Function<String,byte[]> f1 = str1 -> str1.getBytes();
+        Function<String,Integer> f2 = f1.andThen(bytes -> bytes.length);
+        s_example.lengthname(f2);
+
+        //试用断言Predicate
+        s_example.nameInvalid(name -> name.length() > 3);
+        Predicate<String> predicate = name -> name.length() > 2;
+        predicate = predicate.and(name -> name.contains("牛"));
+        s_example.nameInvalid(predicate);
 
     }
     static String ylrc(String y){

@@ -1,6 +1,8 @@
 package Learn_Lambda;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class s_example {
@@ -16,6 +18,15 @@ public class s_example {
 
     public void usename(Consumer<String> consumer){
         consumer.accept(name);
+    }
+    public void lengthname(Function<String,Integer> function){
+        Integer lengt = function.apply(name);
+        System.out.println("名字长度是"+lengt);
+    }
+
+    public void nameInvalid(Predicate<String> predicate){
+        boolean test = predicate.test(name);
+        System.out.println(test ? "名字合法" : "名字不合法");
     }
 
     @Override
