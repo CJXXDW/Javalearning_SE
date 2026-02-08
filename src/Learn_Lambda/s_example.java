@@ -3,7 +3,7 @@ package Learn_Lambda;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class supplier_example {
+public class s_example {
     private String name;
 
 //    public void getname(String name){  //这是普通情况下的写法
@@ -20,7 +20,7 @@ public class supplier_example {
 
     @Override
     public String toString() {
-        return "supplier_example{" +
+        return "s_example{" +
                 "name='" + name + '\'' +
                 '}';
     }

@@ -33,15 +33,15 @@ public class Lambda_main {
 
         /*函数式接口
          */
-        supplier_example supplierExampleex = new supplier_example();
+        s_example s_example = new s_example();
 //        ex.getname(new Supplier<String>() {});//4.1可以通过新建一个对象来实现，也可以使用lambda表达式
-        supplierExampleex.getname(() -> {
+        s_example.getname(() -> {
             System.out.println("实现了第一个函数式方法引用");
             return "测试结果";
         });
-        System.out.println(supplierExampleex.toString());
+        System.out.println(s_example.toString());
 
-        supplierExampleex.usename(System.out::println);
+        s_example.usename(System.out::println);
 
     }
     static String ylrc(String y){
